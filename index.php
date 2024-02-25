@@ -24,29 +24,29 @@
             </thead>
             <tbody>
                 <tr>
-                    <td>Test</th>
-                    <td>1/01/2000</th>
-                    <td><button class="btn btn-primary">View Report</button></th>
+                    <td>Test</td>
+                    <td>1/01/2000</td>
+                    <td><button class="btn btn-primary">View Report</button></td>
                 </tr>
                 <tr>
-                    <td>Test</th>
-                    <td>1/01/2000</th>
-                    <td><button class="btn btn-primary">View Report</button></th>
+                    <td>Test</td>
+                    <td>1/01/2000</td>
+                    <td><button class="btn btn-primary">View Report</button></td>
                 </tr>
                 <tr>
-                    <td>Test</th>
-                    <td>1/01/2000</th>
-                    <td><button class="btn btn-primary">View Report</button></th>
+                    <td>Test</td>
+                    <td>1/01/2000</td>
+                    <td><button class="btn btn-primary">View Report</button></td>
                 </tr>
                 <tr>
-                    <td>Test</th>
-                    <td>1/01/2000</th>
-                    <td><button class="btn btn-primary">View Report</button></th>
+                    <td>Test</td>
+                    <td>1/01/2000</td>
+                    <td><button class="btn btn-primary">View Report</button></td>
                 </tr>
                 <tr>
-                    <td>Test</th>
-                    <td>1/01/2000</th>
-                    <td><button class="btn btn-primary">View Report</button></th>
+                    <td>Test</td>
+                    <td>1/01/2000</td>
+                    <td><button class="btn btn-primary">View Report</button></td>
                 </tr>
             </tbody>
         </table>

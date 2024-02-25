@@ -13,6 +13,26 @@
 </head>
 
 <body>
+    <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h1 class="modal-title fs-5" id="exampleModalLabel">Terms and Conditions</h1>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    By registering to use our service, you agree that we can store the health data that you provide us,
+                    alongside your personal information that you used for account registration. You also agree that your
+                    healthcare provider will be able to see this information and process it. However, <u><strong>we will
+                    never sell your data to a third party for monetary gain.</strong></u> You are in control of
+                    your data.
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Close</button>
+                </div>
+            </div>
+        </div>
+    </div>
     <div class="container mt-5">
         <div class="row justify-content-center">
             <div class="col-md-6 card p-4 mb-5">
@@ -122,13 +142,30 @@
                         </div>
                     </div>
                     <div class="mb-3">
-                        <label for="currentMedications" class="form-label">Current Medications (if none, put "None")</label>
+                        <label for="currentMedications" class="form-label">Current Medications (if none, put
+                            "None")</label>
                         <textarea class="form-control" id="currentMedications" rows="3"></textarea>
                     </div>
                     <div class="mb-3">
-                        <label for="currentConditions" class="form-label">Current Conditions (if none, put "None")</label>
+                        <label for="currentConditions" class="form-label">Current Conditions (if none, put
+                            "None")</label>
                         <textarea class="form-control" id="currentConditions" rows="3"></textarea>
+                    </div>
+                    <div class="mb-3">
+                        <label for="healthcareProvider" class="form-label">Healthcare Provider</label>
+                        <input type="text" class="form-control" id="healthcareProvider" required>
+                    </div>
+                    <div class="mb-3 form-check">
+                        <input type="checkbox" name="agreeTOS-1" id="agreeTOS-1" class="form-check-input" required>
+                        <label for="agreeTOS-1" class="form-check-label"><strong>I consent to the processing of my
+                                health data.</strong><br><a href="#" class="" data-bs-toggle="modal"
+                                data-bs-target="#exampleModal">Read More</a></label>
                     </div>
                     <div class="mb-3">
                         <input type="submit" value="Sign Up" class="form-control btn btn-primary">
                     </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</body>
