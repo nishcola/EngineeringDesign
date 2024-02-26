@@ -37,51 +37,55 @@
         <div class="row justify-content-center">
             <div class="col-md-6 card p-4 mb-5">
                 <h2 class="text-center mb-3">Sign Up</h2>
-                <form>
+                <form action="process-signup.php" method="post">
                     <div class="mb-3">
                         <label for="username" class="form-label">Username</label>
-                        <input type="text" class="form-control" id="username" required>
+                        <input type="text" class="form-control" id="username" name="username" required>
                     </div>
                     <div class="mb-3">
                         <label for="password" class="form-label">Password</label>
-                        <input type="password" class="form-control" id="password" required>
+                        <input type="password" class="form-control" id="password" name="password" required>
+                    </div>
+                    <div class="mb-3">
+                        <label for="password_confirmation">Confirm Password</label>
+                        <input type="password" name="password_confirmation" id="password_confirmation" class="form-control">
                     </div>
                     <div class="row">
                         <div class="col-md-6 mb-3">
                             <label for="firstName" class="form-label">First Name</label>
-                            <input type="text" class="form-control" id="firstName" required>
+                            <input type="text" class="form-control" id="firstName" name="firstName" required>
                         </div>
                         <div class="col-md-6 mb-3">
                             <label for="lastName" class="form-label">Last Name</label>
-                            <input type="text" class="form-control" id="lastName" required>
+                            <input type="text" class="form-control" id="lastName" name="lastName" required>
                         </div>
                     </div>
                     <div class="mb-3">
-                        <label for="dateOfBirth" class="form-label">Date of Birth</label>
-                        <input type="date" class="form-control" id="dateOfBirth" required>
+                        <label for="birthday" class="form-label">Date of Birth</label>
+                        <input type="date" class="form-control" id="birthday" name="birthday" required>
                     </div>
                     <div class="mb-3">
                         <label for="email" class="form-label">Email Address</label>
-                        <input type="email" class="form-control" id="email" required>
+                        <input type="email" class="form-control" id="email" name="email" required>
                     </div>
                     <div class="mb-3">
                         <label for="address" class="form-label">Address</label>
-                        <input type="text" class="form-control" id="address" required>
+                        <input type="text" class="form-control" id="address" name="address" required>
                     </div>
                     <div class="row">
                         <div class="col-md-6 mb-3">
                             <label for="street" class="form-label">Street</label>
-                            <input type="text" class="form-control" id="street">
+                            <input type="text" class="form-control" id="street" name="street" required>
                         </div>
                         <div class="col-md-6 mb-3">
                             <label for="city" class="form-label">City</label>
-                            <input type="text" class="form-control" id="city">
+                            <input type="text" class="form-control" id="city" name="city" required>
                         </div>
                     </div>
                     <div class="row">
                         <div class="col-md-6 mb-3">
                             <label for="state" class="form-label">State</label>
-                            <select name="state" id="state" class="form-select form-control">
+                            <select name="state" id="state" class="form-select form-control" required>
                                 <option selected>Choose...</option>
                                 <option value="AL">Alabama</option>
                                 <option value="AK">Alaska</option>
@@ -138,31 +142,31 @@
                         </div>
                         <div class="col-md-6 mb-3">
                             <label for="postalCode" class="form-label">Postal Code</label>
-                            <input type="number" class="form-control" id="postalCode">
+                            <input type="number" class="form-control" id="postalCode" name="postalCode" required>
                         </div>
                     </div>
                     <div class="mb-3">
                         <label for="currentMedications" class="form-label">Current Medications (if none, put
                             "None")</label>
-                        <textarea class="form-control" id="currentMedications" rows="3"></textarea>
+                        <textarea class="form-control" id="currentMedications" rows="3" name="currentMedications" required></textarea>
                     </div>
                     <div class="mb-3">
                         <label for="currentConditions" class="form-label">Current Conditions (if none, put
                             "None")</label>
-                        <textarea class="form-control" id="currentConditions" rows="3"></textarea>
+                        <textarea class="form-control" id="currentConditions" rows="3" name="currentConditions" required></textarea>
                     </div>
                     <div class="mb-3">
                         <label for="healthcareProvider" class="form-label">Healthcare Provider</label>
-                        <input type="text" class="form-control" id="healthcareProvider" required>
+                        <input type="text" class="form-control" id="healthcareProvider" name="healthcareProvider" required>
                     </div>
                     <div class="mb-3 form-check">
-                        <input type="checkbox" name="agreeTOS-1" id="agreeTOS-1" class="form-check-input" required>
-                        <label for="agreeTOS-1" class="form-check-label"><strong>I consent to the processing of my
+                        <input type="checkbox" name="agreeTOS" id="agreeTOS" class="form-check-input" required>
+                        <label for="agreeTOS" class="form-check-label"><strong>I consent to the processing of my
                                 health data.</strong><br><a href="#" class="" data-bs-toggle="modal"
                                 data-bs-target="#exampleModal">Read More</a></label>
                     </div>
                     <div class="mb-3">
-                        <input type="submit" value="Sign Up" class="form-control btn btn-primary">
+                        <button class="form-control btn btn-primary">Sign Up</button>
                     </div>
                 </form>
             </div>
