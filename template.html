@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <style>
+      table {
+        border-collapse: collapse;
+        width: 100%;
+      }
+
+      th,
+      td {
+        text-align: left;
+        padding: 8px;
+      }
+
+      tr:nth-child(even) {
+        background-color: #d6eeee;
+      }
+    </style>
+    <meta charset="UTF-8" />
+    <title>Patient Report</title>
+  </head>
+  <body>
+    <img
+      src="istockphoto-1321617070-612x612.jpg"
+      alt=""
+      style="width: 25%; float: right"
+    />
+    <h1><u>Patient Report:</u></h1>
+    <p>Blood Oxygen: {{ blood-oxygen }}</p>
+    <p>BPM: {{ bpm }}</p>
+    <p>PM 2.5 Molecule Concentration: {{ pm }}</p>
+    <p>Additional Comments: {{ additional-comments }}</p>
+    <hr />
+    <h1><u>Patient Information:</u></h1>
+    <table>
+      <tr>
+        <td>First Name:</td>
+        <td>{{ first-name }}</td>
+      </tr>
+      <tr>
+        <td>Last Name:</td>
+        <td>{{ last-name }}</td>
+      </tr>
+      <tr>
+        <td>Birthday:</td>
+        <td>{{ birthday }}</td>
+      </tr>
+      <tr>
+        <td>Address:</td>
+        <td>{{ address }}</td>
+      </tr>
+      <tr>
+        <td>Street:</td>
+        <td>{{ street }}</td>
+      </tr>
+      <tr>
+        <td>Postal Code:</td>
+        <td>{{ postal-code }}</td>
+      </tr>
+      <tr>
+        <td>City:</td>
+        <td>{{ city }}</td>
+      </tr>
+      <tr>
+        <td>State:</td>
+        <td>{{ state }}</td>
+      </tr>
+      <tr>
+        <td>Current Medications:</td>
+        <td>{{ current-medications }}</td>
+      </tr>
+      <tr>
+        <td>Current Conditions:</td>
+        <td>{{ current-conditions }}</td>
+      </tr>
+      <tr>
+        <td>Healthcare Provider:</td>
+        <td>{{ healthcare-provider }}</td>
+      </tr>
+    </table>
+  </body>
+</html>

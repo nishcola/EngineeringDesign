@@ -72,7 +72,7 @@ if (isset($_SESSION["user_id"])) {
                 </tr>
             </tbody>
         </table>
-        <button class="btn btn-primary">Create New</button>
+        <a href="new-report.html" target="_blank"><button class="btn btn-primary">Create New</button></a>
         <?php if (isset($_SESSION["user_id"])): ?>
             <a href="logout.php"><button class="btn btn-danger">Log Out</button></a>
         <?php endif; ?>
