@@ -13,9 +13,14 @@
 </head>
 
 <body>
-    <div class="container">
+    <div class="container mt-3">
         <h1>Signup successful!</h1>
-        <p>You can now <a href="login.php">log in</a> to your account.</p>
+        <p>Redirecting you to the login page shortly...</p>
     </div>
+    <script>
+        setTimeout(function(){
+                    window.location.href = 'login.php';
+        }, 1500);
+    </script>
 </body>
 </html>

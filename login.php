@@ -59,6 +59,7 @@ $is_invalid = true;
               <label for="password" class="form-label">Password</label>
               <input type="password" class="form-control" id="password" name="password" required>
             </div>
+            <h6 class="mb-3">Don't have an account? <a href="signup.html">Sign Up</a></h6>
             <button class="btn btn-primary">Login</button>
             <?php if ($is_invalid): ?>
               <br><br><em class="text-danger h4">Invalid login information.</em>
