@@ -1,12 +1,38 @@
 <?php
 session_start();
-if (isset($_SESSION["user_id"])) {
-    $mysqli = require __DIR__ . "/database.php";
-    $sql = "SELECT * FROM user
-            WHERE id = {$_SESSION["user_id"]}";
-    $result = $mysqli->query($sql);
-    $user = $result->fetch_assoc();
+
+if (isset($_SESSION["user_id"]) == false) {
+    header("Location: login.php");
 }
+
+//if (isset($_SESSION["user_id"])) {
+//$mysqli = require __DIR__ . "/database.php";
+//$sql = "SELECT * FROM user
+//WHERE id = {$_SESSION["user_id"]}";
+//$result = $mysqli->query($sql);
+//$user = $result->fetch_assoc();
+//}
+
+$host = "localhost";
+$dbname = "engineering_design";
+$username = "root";
+$password = "";
+
+$mysqli = new mysqli($host, $username, $password, $dbname);
+
+if ($mysqli->connect_errno) {
+    die("Connection error: " . $mysqli->connect_error);
+}
+
+$query = "SELECT * FROM user WHERE id = {$_SESSION["user_id"]}";
+$result = mysqli_query($mysqli, $query);
+$row = mysqli_fetch_array($result);
+$userID = $row[0];
+$username = $row["username"];
+
+$sql = "SELECT * FROM file_upload WHERE belongs_to = $userID";
+$result = $mysqli->query($sql);
+$mysqli->close();
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -26,7 +52,9 @@ if (isset($_SESSION["user_id"])) {
     <nav class="navbar bg-body-tertiary">
         <div class="container-fluid">
             <?php if (isset($_SESSION["user_id"])): ?>
-                <span class="navbar-brand mb-0 h1">Welcome, <?= htmlspecialchars($user["username"]) ?></span>
+                <span class="navbar-brand mb-0 h1">Welcome,
+                    <?= htmlspecialchars($username) ?>
+                </span>
             <?php else: ?>
                 <span class="navbar-brand mb-0 h1">You are not logged in. <a href="login.php">Log in</a> or <a
                         href="signup.html">sign up.</a></span>
@@ -37,7 +65,7 @@ if (isset($_SESSION["user_id"])) {
         <h2 class="mb-3">Report History</h2>
         <hr>
         <table class="table table-hover table-bordered">
-            <thead>
+            <!--<thead>
                 <tr>
                     <th class="col-4">Patient Name</th>
                     <th class="col-6">Date Taken</th>
@@ -70,10 +98,39 @@ if (isset($_SESSION["user_id"])) {
                     <td>1/01/2000</td>
                     <td><button class="btn btn-primary">View Report</button></td>
                 </tr>
+            </tbody>-->
+            <thead>
+                <?php
+                if ($result->num_rows > 0) {
+                    echo "<tr>";
+                    echo "<th>File Name</th>";
+                    echo "<th>Time Uploaded</th>";
+                    echo "<th>Actions</th>";
+                    echo "</tr>";
+                }
+                ?>
+            </thead>
+            <tbody>
+                <?php
+
+                if ($result->num_rows > 0) {
+                    while ($row = $result->fetch_assoc()) {
+                        echo "<tr>";
+                        echo "<td>" . $row['filename'] . "</td>";
+                        echo "<td>" . $row['time_stamp'] . "</td>";
+                        echo '<td><a href="uploads/' . $row['filename'] . '" class="btn btn-primary" download>Download</a></td>';
+                        echo "</tr>";
+                    }
+                } else {
+                    echo "<h2>No uploads found</h2>";
+                }
+
+                ?>
             </tbody>
         </table>
-        <a href="new-report.html" target="_blank"><button class="btn btn-primary">Create New</button></a>
         <?php if (isset($_SESSION["user_id"])): ?>
+            <a href="new-report.html" target="_blank"><button class="btn btn-primary">Create New</button></a>
+            <a href="upload-report.php"><button class="btn btn-secondary">Upload Report</button></a>
             <a href="logout.php"><button class="btn btn-danger">Log Out</button></a>
         <?php endif; ?>
     </div>
