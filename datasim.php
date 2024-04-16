@@ -11,22 +11,10 @@
         integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
 </head>
 <body>
-<nav class="navbar bg-body-tertiary">
-        <div class="container-fluid">
-            <?php if (isset($_SESSION["user_id"])): ?>
-                <span class="navbar-brand mb-0 h1">Welcome,
-                    <?= htmlspecialchars($username) ?>
-                </span>
-            <?php else: ?>
-                <span class="navbar-brand mb-0 h1">You are not logged in. <a href="login.php">Log in</a> or <a
-                        href="signup.html">sign up.</a></span>
-            <?php endif; ?>
-        </div>
-    </nav>
     <div class="container mt-4">
         <h2 class="mb-3">Data History</h2>
         <hr>
-        <table class="table table-hover table-bordered">
+        <table class="table table-hover table-bordered" id="myTable">
             <thead>
                 <tr>
                     <th class="col-3">Blood Oxygen (SpO2)</th>
@@ -37,38 +25,44 @@
             </thead>
             <tbody>
                 <tr>
-                <form method="post" action="generate-pdf.php">
-                    <td><input type="hidden" class="form-control" id="blood-oxygen" name="blood-oxygen" value="98.73">98.73</td>
-                    <td><input type="hidden" class="form-control" id="bpm" name="bpm" value="89">89</td>
-                    <td><input type="hidden" class="form-control" id="pm" name="pm" value="12.2">12.2</td>
-                    <td><button class="btn btn-primary">View Report</button></td>
-                </form>
+                    <form method="post" action="generate-pdf.php">
+                        <td><input type="hidden" class="form-control" id="blood-oxygen" name="blood-oxygen" value="98.73">98.73</td>
+                        <td><input type="hidden" class="form-control" id="bpm" name="bpm" value="89">89</td>
+                        <td><input type="hidden" class="form-control" id="pm" name="pm" value="12.2"><input type="hidden" class="form-control" id="additional-comments" name="additional-comments" value="None">12.2</td>
+                        <td><button class="btn btn-primary" type="submit">View Report</button></td>
+                    </form>
                 </tr>
                 <tr>
-                <form method="post" action="generate-pdf.php">
-                    <td>Test</td>
-                    <td>1/01/2000</td>
-                    <td>Test</td>
-                    <td><button class="btn btn-primary">View Report</button></td>
-                </form>
+                    <form method="post" action="generate-pdf.php">
+                        <td><input type="hidden" class="form-control" id="blood-oxygen" name="blood-oxygen" value="99.12">99.12</td>
+                        <td><input type="hidden" class="form-control" id="bpm" name="bpm" value="97">97</td>
+                        <td><input type="hidden" class="form-control" id="pm" name="pm" value="11.5"><input type="hidden" class="form-control" id="additional-comments" name="additional-comments" value="None">11.5</td>
+                        <td><button class="btn btn-primary" type="submit">View Report</button></td>
+                    </form>
                 </tr>
                 <tr>
-                    <td>Test</td>
-                    <td>1/01/2000</td>
-                    <td>Test</td>
-                    <td><button class="btn btn-primary">View Report</button></td>
+                    <form method="post" action="generate-pdf.php">
+                        <td><input type="hidden" class="form-control" id="blood-oxygen" name="blood-oxygen" value="97.64">97.64</td>
+                        <td><input type="hidden" class="form-control" id="bpm" name="bpm" value="103">103</td>
+                        <td><input type="hidden" class="form-control" id="pm" name="pm" value="9.4"><input type="hidden" class="form-control" id="additional-comments" name="additional-comments" value="None">9.4</td>
+                        <td><button class="btn btn-primary" type="submit">View Report</button></td>
+                    </form>
                 </tr>
                 <tr>
-                    <td>Test</td>
-                    <td>1/01/2000</td>
-                    <td>Test</td>
-                    <td><button class="btn btn-primary">View Report</button></td>
+                    <form method="post" action="generate-pdf.php">
+                        <td><input type="hidden" class="form-control" id="blood-oxygen" name="blood-oxygen" value="98.73">96.1</td>
+                        <td><input type="hidden" class="form-control" id="bpm" name="bpm" value="89">94</td>
+                        <td><input type="hidden" class="form-control" id="pm" name="pm" value="12.2"><input type="hidden" class="form-control" id="additional-comments" name="additional-comments" value="None">15.7</td>
+                        <td><button class="btn btn-primary" type="submit">View Report</button></td>
+                    </form>
                 </tr>
                 <tr>
-                    <td>Test</td>
-                    <td>1/01/2000</td>
-                    <td>Test</td>
-                    <td><button class="btn btn-primary">View Report</button></td>
+                    <form method="post" action="generate-pdf.php">
+                        <td><input type="hidden" class="form-control" id="blood-oxygen" name="blood-oxygen" value="98.73">98.73</td>
+                        <td><input type="hidden" class="form-control" id="bpm" name="bpm" value="89">104</td>
+                        <td><input type="hidden" class="form-control" id="pm" name="pm" value="12.2"><input type="hidden" class="form-control" id="additional-comments" name="additional-comments" value="None">7.934</td>
+                        <td><button class="btn btn-primary" type="submit">View Report</button></td>
+                    </form>
                 </tr>
             </tbody>
         </table>
@@ -78,5 +72,25 @@
             <a href="logout.php"><button class="btn btn-danger">Log Out</button></a>
         <?php endif; ?>
     </div>
+    <script>
+        var table = document.getElementById("myTable");
+        addrows();
+        function addrows(){
+            for(var i = 0; i < 50; i++) {
+                setTimeout(() => {
+                var row = table.insertRow(-1);
+                var cell1 = row.insertCell(0);
+                var cell2 = row.insertCell(1);
+                var cell3 = row.insertCell(2);
+                var cell4 = row.insertCell(3);
+
+                cell1.innerHTML = Math.floor(Math.random() * 6) + 94
+                cell2.innerHTML = Math.floor(Math.random() * 6) + 101
+                cell3.innerHTML = Math.floor(Math.random() * 6) + 4
+                cell4.innerHTML = '<button class="btn btn-primary" type="submit">View Report</button>';
+                }, i * 1000); // Change 1000 to the desired delay in milliseconds
+            }
+        };
+    </script>
 </body>
 </html>
